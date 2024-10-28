@@ -133,8 +133,6 @@ query {
 Represents a Bitcoin transaction with energy consumption details.
 
 - `hash(String!)` : The transaction hash.
-<br>
-
 - `energyCost(Float!)` : The calculated energy consumption in kWh.
 
 <br>
@@ -143,8 +141,6 @@ Represents a Bitcoin transaction with energy consumption details.
 Represents a Bitcoin block containing transactions.
 
 - `hash(String!)` : The block hash.
-<br>
-
 - `index(Int!)` : The block index (height).
 - `time(Int!)` : The timestamp of the block.
 - `transactions([Transaction!]!)` : The list of transactions in the block.
@@ -172,8 +168,6 @@ The API uses Redis to cache data and reduce the number of calls to the Blockchai
 
 Cache Keys Used:
 - `block:<blockHash>` : Stores block data including transactions.
-<br>
-
 - `address:<address>` : Stores transactions associated with a wallet address.
 - `blocksByDate:<dateMillis>` : Stores blocks retrieved for a specific date.
 - `totalEnergyConsumption:<dateMillis>` : Stores total energy consumption calculated for a date.
