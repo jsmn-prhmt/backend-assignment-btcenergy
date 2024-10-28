@@ -10,7 +10,7 @@ provider:
   lambdaHashingVersion: 20201221
   memorySize: 256
   logRetentionInDays: 14
-  timeout: 29
+  timeout: 120 # For all functions
 
 plugins:
   - serverless-esbuild
@@ -30,3 +30,6 @@ functions:
     handler: src/fn_graphql.handler
     events:
       - httpApi: '*'
+  # totalEnergyConsumptionPerDay:
+  #   handler: src/fn_totalEnergyConsumptionPerDay.handler
+  #   timeout: 120 # Increase this value as needed
