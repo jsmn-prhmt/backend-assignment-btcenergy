@@ -19,7 +19,9 @@ Retrieve the energy consumption per transaction for a specific block.
 - `limit(Int)` : The maximum number of transactions to return (default is 50).
 - `offset(Int)` : The number of transactions to skip (default is 0).
 ### Returns
-An array of `Transaction` objects containing the following fields:
+- An array of `Transaction` objects containing the following fields:
+
+<br>
 
 - `hash(String!)` : The unique identifier of the transaction.
 - `energyCost(Float!)` : The energy consumption of the transaction in kilowatt-hours (kWh).
@@ -61,7 +63,7 @@ Retrieve the total energy consumption per day over the last x number of days.
 ### Arguments
 - `days(Int!)` : The number of days to retrieve data for (e.g., 7 for the last week).
 ### Returns
-An array of `Floats`, each representing the total energy consumption in kWh for a day. The array is ordered from the most recent day to the oldest.
+- An array of `Floats`, each representing the total energy consumption in kWh for a day. The array is ordered from the most recent day to the oldest.
 
 #### Example Query
 ``` sh
@@ -89,7 +91,7 @@ Retrieve the total energy consumption of all transactions performed by a specifi
 ### Arguments
 - `address(String!)` : The Bitcoin wallet address you want to query.
 ### Returns
-A `Float` representing the total energy consumption in kWh for all transactions associated with the given address.
+- A `Float` representing the total energy consumption in kWh for all transactions associated with the given address.
 
 #### Example Query
 ``` sh
@@ -110,7 +112,7 @@ query {
 A simple greeting to test the API.
 
 ### Returns
-A String message.
+- A String message.
 
 #### Example Query
 ``` sh 
