@@ -14,7 +14,7 @@ http://localhost:4000/graphql
 ## 1. `energyConsumptionForBlock` :
 Retrieve the energy consumption per transaction for a specific block.
 
-## Arguments
+### Arguments
 - `blockHash(String!)` : The hash of the block you want to query.
 - `limit(Int)` : The maximum number of transactions to return (default is 50).
 - `offset(Int)` : The number of transactions to skip (default is 0).
@@ -23,7 +23,7 @@ An array of `Transaction` objects containing the following fields:
 
 - `hash(String!)` : The unique identifier of the transaction.
 - `energyCost(Float!)` : The energy consumption of the transaction in kilowatt-hours (kWh).
-### Example Query
+#### Example Query
 
 ``` sh
 query {
@@ -37,7 +37,7 @@ query {
   }
 }
 ```
-### Example Response
+#### Example Response
 ``` sh
 {
   "data": {
@@ -58,18 +58,18 @@ query {
 ## 2. `totalEnergyConsumptionPerDay`:
 Retrieve the total energy consumption per day over the last x number of days.
 
-## Arguments
+### Arguments
 - `days(Int!)` : The number of days to retrieve data for (e.g., 7 for the last week).
-## Returns
+### Returns
 An array of `Floats`, each representing the total energy consumption in kWh for a day. The array is ordered from the most recent day to the oldest.
 
-### Example Query
+#### Example Query
 ``` sh
 query {
   totalEnergyConsumptionPerDay(days: 5)
 }
 ```
-### Example Response
+#### Example Response
 ``` sh
 {
   "data": {
@@ -86,18 +86,18 @@ query {
 ## 3. `totalEnergyConsumptionByAddress`:
 Retrieve the total energy consumption of all transactions performed by a specific wallet address.
 
-## Arguments
+### Arguments
 - `address(String!)` : The Bitcoin wallet address you want to query.
-## Returns
+### Returns
 A `Float` representing the total energy consumption in kWh for all transactions associated with the given address.
 
-### Example Query
+#### Example Query
 ``` sh
 query {
   totalEnergyConsumptionByAddress(address: "1A8JiWcwvpY7tAopUkSnGuEYHmzGYfZPiq")
 }
 ```
-### Example Response
+#### Example Response
 ```sh
 {
   "data": {
@@ -109,16 +109,16 @@ query {
 ## 4. `hello` :
 A simple greeting to test the API.
 
-## Returns
+### Returns
 A String message.
 
-### Example Query
+#### Example Query
 ``` sh 
 query {
   hello
 }
 ```
-### Example Response
+#### Example Response
 ``` sh
 {
   "data": {
