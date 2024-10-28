@@ -21,10 +21,8 @@ Retrieve the energy consumption per transaction for a specific block.
 ### Returns
 - An array of `Transaction` objects containing the following fields:
 
-<br>
-
-- `hash(String!)` : The unique identifier of the transaction.
-- `energyCost(Float!)` : The energy consumption of the transaction in kilowatt-hours (kWh).
+  - `hash(String!)` : The unique identifier of the transaction.
+  - `energyCost(Float!)` : The energy consumption of the transaction in kilowatt-hours (kWh).
 #### Example Query
 
 ``` sh
