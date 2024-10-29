@@ -20,10 +20,10 @@ const redisClient = createClient({
   password: process.env.REDIS_PASSWORD || undefined,
 });
 
-// Handle Redis client errors - potential connection or runtime issue
+// Handle Redis client errors
 redisClient.on('error', (err) => console.error('Redis Client Error', err));
 
-// Connect to Redis server asynchronously
+// Connect to Redis server
 (async () => {
   try {
     await redisClient.connect();
@@ -33,7 +33,7 @@ redisClient.on('error', (err) => console.error('Redis Client Error', err));
   }
 })();
 
-// Utility functions for Redis caching retrieval and storage
+// Utility functions for Redis caching
 async function getFromCache(key: string) {
   const cachedData = await redisClient.get(key);
   if (cachedData) {
@@ -104,7 +104,7 @@ async function fetchBlockTransactionsWithEnergy(
       // size: tx.size,
     }));
 
-    block = {
+    block = { 
       hash: blockData.hash,
       index: blockData.height,
       time: blockData.time,
@@ -144,12 +144,12 @@ async function fetchAllTransactionsForAddress(address: string) {
     const maxLimit = 50; // API's maximum limit per request
     const totalPages = Math.ceil(totalTxs / maxLimit);
 
-    const limitRequests = pLimit(1); // Limit concurrency
+    const limitRequests = pLimit(1);
 
-    const tasks = []; // Array to store all promises
+    const tasks = []; 
 
     for (let i = 0; i < totalPages; i++) {
-      const currentOffset = i * maxLimit; // Calculate offset
+      const currentOffset = i * maxLimit;
 
       const task = limitRequests(async () => {
         try {
@@ -209,7 +209,7 @@ const fetchBlockDataByDate = async (dateMillis: number) => {
     );
     const blocks = response.data;
 
-    // Check if blocks are returned as an array - API might return an object instead of an array if no blocks are found
+    // Check if blocks are returned as an array
     if (!Array.isArray(blocks)) {
       throw new Error('No blocks data returned for the given date.');
     }
@@ -232,10 +232,10 @@ const fetchBlockDataByDate = async (dateMillis: number) => {
 };
 
 // Calculate total energy consumption with Redis caching
-const calculateTotalEnergyConsumption = async ( // an array of block objects with hash property
+const calculateTotalEnergyConsumption = async (
   blocks: { hash: string }[]
 ) => {
-  const limit = pLimit(20); // Limit concurrency
+  const limit = pLimit(20); 
 
   const totalEnergyConsumptionArray: number[] = await Promise.all(
     blocks.map((block) =>
@@ -319,7 +319,7 @@ schemaComposer.Query.addFields({
     type: '[Float!]!',
     args: { days: 'Int!' },
     resolve: async (_, { days }) => {
-      const limit = pLimit(5); // Limit concurrency to 5 days at a time
+      const limit = pLimit(5); 
       const today = new Date(
         Date.UTC(
           new Date().getUTCFullYear(),
