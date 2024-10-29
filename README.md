@@ -1,6 +1,6 @@
 # API Documentation
 ## Overview
-This API provides insights into the energy consumption of Bitcoin transactions and blocks. It allows users to monitor and analyze the sustainability of the Bitcoin network by exposing data such as energy consumption per transaction, total energy consumption per day, and energy consumption by wallet address.
+This API provides insights into the energy consumption of Blockchain transactions and blocks. It allows users to monitor and analyze the sustainability of the Blockchain network by exposing data such as energy consumption per transaction, total energy consumption per day, and energy consumption by wallet address.
 
 ## GraphQL Endpoint
 Access the GraphQL API at:
@@ -87,7 +87,7 @@ query {
 Retrieve the total energy consumption of all transactions performed by a specific wallet address.
 
 ### Arguments
-- `address(String!)` : The Bitcoin wallet address you want to query.
+- `address(String!)` : The Blockchain wallet address you want to query.
 ### Returns
 - A `Float` representing the total energy consumption in kWh for all transactions associated with the given address.
 
@@ -130,7 +130,7 @@ query {
 
 # Types
 `Transaction`    
-Represents a Bitcoin transaction with energy consumption details.
+Represents a Blockchain transaction with energy consumption details.
 
 - `hash(String!)` : The transaction hash.
 - `energyCost(Float!)` : The calculated energy consumption in kWh.
@@ -138,7 +138,7 @@ Represents a Bitcoin transaction with energy consumption details.
 <br>
 
 `Block`    
-Represents a Bitcoin block containing transactions.
+Represents a Blockchain block containing transactions.
 
 - `hash(String!)` : The block hash.
 - `index(Int!)` : The block index (height).
